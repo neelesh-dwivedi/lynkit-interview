@@ -1,0 +1,23 @@
+{
+  "name": "lynkit",
+  "version": "1.0.0",
+  "main": "lynkit_machine_round.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "request-promise": "^4.2.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neelesh-dwivedi/lynkit-interview.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/neelesh-dwivedi/lynkit-interview/issues"
+  },
+  "homepage": "https://github.com/neelesh-dwivedi/lynkit-interview#readme",
+  "description": ""
+}
