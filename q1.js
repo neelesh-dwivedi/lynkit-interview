@@ -20,7 +20,7 @@ const startPromising = async () => {
     let a = await Promise_A();
     let b = Promise_B();
     let c = Promise_C();
-    await Promise.all([a, b]);
+    await Promise.all([b, c]);
     await startPromiseD();
   } catch (error) {
       console.error(error)
