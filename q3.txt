@@ -1,0 +1,33 @@
+1.Write a program to read data from database (mongodb [mongoose] ) having nested
+loop.
+
+Considering there are these following collections:
+
+article(_id, articleDetailsId, imageDetailId[], commentId[],status)
+comments(_id, articleId, comment, status)
+articledetails(_id, text)
+imagedetails(_id, articleId, imageURL)
+
+Mongo query for fetching all the comments and images for all the articles
+
+db.article.aggregate([
+  {$match:{status: 1}}
+  {$lookup:{from: "articledetails", as: "articleDetails", localField: "articleDetailsId", foreignField: "_id"}},
+  {$lookup:{from: "comments", as: "comments", localField: "commentId", foreignField: "_id"}},
+  {$lookup:{from: "imagedetails", as: "images", localField: "imageDetailId", foreignField: "_id"}},
+  {$project:{"articleDetails.text": 1, "comments.comment": 1, "images.imageURL": 1}}
+]);
+
+2.Write a program to demonstrate mongoose pre hook save.
+
+Considering there is a UserSchema on which we are using pre hook save.
+
+UserSchema.pre('save', function (next) {
+  if (this.password && this.isModified('password') && this.password.length >= 6) {
+    this.salt = Crypto.randomBytes(16).toString('base64');
+    this.password = this.hashPassword(this.password);
+  }
+  next();
+});
+
+
